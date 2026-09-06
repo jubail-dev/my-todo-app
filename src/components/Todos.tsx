@@ -1,14 +1,21 @@
 import type { TodosType } from "../types/type";
+import Todo from "./Todo";
 
 export interface TodosProps {
-    toDos: TodosType[]
+    props: TodosType[]
 }
 
-const Todos = ({ toDos }: TodosProps) => {
+const Todos = ({ props }: TodosProps) => {
+
+    console.log(props);
     
     return (
         <>
-            
+            <section>
+                {
+                    props.map(todo => <Todo todo={todo} key={todo.id}></Todo>)
+                }
+            </section>
         </>
     )
 }
